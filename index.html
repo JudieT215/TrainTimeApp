@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Time App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <!--Firebase--> 
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyA5rqaP_dz2sDHiPpyyM6YRlY8mo4rlruo",
+        authDomain: "train-time-app-fdf50.firebaseapp.com",
+        databaseURL: "https://train-time-app-fdf50.firebaseio.com",
+        projectId: "train-time-app-fdf50",
+        storageBucket: "train-time-app-fdf50.appspot.com",
+        messagingSenderId: "909369188519"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <!-- Bootstrap Javascript and jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!-- Custom JavaScript -->
+    <script src="assets/javascript/app.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+             <header class="jumbotron">
+                       <h1>Train Time App</h1> 
+            </header>
+        </div>
+        <div class="row">
+             <section class="col-sm-7">
+                 <div class="panel panel-primary">
+                        <div class="panel-heading border">
+                                <h3>Add Train Information</h3>
+                        </div>
+                    <div class="panel-body border">
+                        <div id="Train-add">
+                             <div class="form-group">
+                            <!--Train Name Input-->
+                            <label for="trainAdd"> Train Name</label>
+                            <input type="input" class="form-control" id="trainName" placeholder="Train Name"> <br>
+                             <!--Train Destination Input-->
+                            <label for="trainDestination"> Destination</label>
+                            <input type="input" class="form-control" id="trainDestination" placeholder="Train Destination"> <br>
+                            <!--1st Train Input-->
+                            <label for="trainFirst"> First Train Time</label>
+                            <input type="input" class="form-control" id="trainFirstTime" placeholder="First Train Time"> <br>
+                            <!--Train Frequency Input-->
+                            <label for="trainFreq"> Train Frequency</label>
+                            <input type="input" class="form-control" id="trainFreq" placeholder="Train Frequency"><br>
+
+                            <button type="submit" class="btn btn-primary" id="trainSubmit">Submit </button><br>
+                        </div>
+                        </div>
+                     </div>
+                </div>
+             </section>
+                    <!--Col1-->
+                    <aside class="col-sm-5 border" id="sidebar">
+                        <div class="panel panel-info">
+                            <div class="panel-heading border">
+                               <h3> Next Train Arrival</h3>
+                             </div>
+                            <div class="panel-body border">
+                            Train Arrival will go here
+                            </div>
+                        <div>
+                          
+                        </div>
+                    </aside>
+                    <!--Col2-->
+                </div><!--Row1-->
+        <div class="row">
+   
+            <div class="col-sm-12">
+                <div class= "panel panel-primary">
+                    <div class="panel-heading" id="TrainInforHeading">
+                        <h3> Train Time Results </h3>
+                </div>
+                <div class="panel-body border" id="Train-information-saved">
+                        <Table class="table">
+                            <tbody class="table table-striped">
+                            <tr>
+                                <th>Train Name </th>
+                                <th>Destination </th>
+                                <th>First Train Time</th>
+                                <th>Frequency -- in minutes</th>
+                            </tr>
+
+                            <tr>
+                                <td>NYC Train</td>
+                                <td>New York</td>
+                                <td>10:50 AM</td>
+                                <td>30 Mins</td>
+                            </tr>
+                            </tbody>
+                        </Table>
+                    </div>
+                    <!--col-->
+                </div>
+                <!--panel body-->
+            </div>
+            <!--panel-->
+        </div>
+        <!--row1-->
+    </div>
+    <!--Container-->
+
+
+</body>
+
+</html>
