@@ -15,24 +15,26 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900" rel="stylesheet">
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <!--Firebase--> 
+    <!--Firebase-->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyA5rqaP_dz2sDHiPpyyM6YRlY8mo4rlruo",
-        authDomain: "train-time-app-fdf50.firebaseapp.com",
-        databaseURL: "https://train-time-app-fdf50.firebaseio.com",
-        projectId: "train-time-app-fdf50",
-        storageBucket: "train-time-app-fdf50.appspot.com",
-        messagingSenderId: "909369188519"
-    };
-    firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA5rqaP_dz2sDHiPpyyM6YRlY8mo4rlruo",
+            authDomain: "train-time-app-fdf50.firebaseapp.com",
+            databaseURL: "https://train-time-app-fdf50.firebaseio.com",
+            projectId: "train-time-app-fdf50",
+            storageBucket: "train-time-app-fdf50.appspot.com",
+            messagingSenderId: "909369188519"
+        };
+        firebase.initializeApp(config);
     </script>
     <!-- Bootstrap Javascript and jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <!-- Link to Moment.js should go here -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!-- Custom JavaScript -->
     <script src="assets/javascript/app.js"></script>
 </head>
@@ -41,88 +43,207 @@
 
     <div class="container">
         <div class="row">
-             <header class="jumbotron">
-                       <h1>Train Time App</h1> 
+            <header class="jumbotron">
+                <h1>Train Time App</h1>
             </header>
         </div>
         <div class="row">
-             <section class="col-sm-7">
-                 <div class="panel panel-primary">
-                        <div class="panel-heading border">
-                                <h3>Add Train Information</h3>
-                        </div>
+            <section class="col-sm-7">
+                <div class="panel panel-primary">
+                    <div class="panel-heading border">
+                        <h3>Add Train Information</h3>
+                    </div>
                     <div class="panel-body border">
                         <div id="Train-add">
-                             <div class="form-group">
-                            <!--Train Name Input-->
-                            <label for="trainAdd"> Train Name</label>
-                            <input type="input" class="form-control" id="trainName" placeholder="Train Name"> <br>
-                             <!--Train Destination Input-->
-                            <label for="trainDestination"> Destination</label>
-                            <input type="input" class="form-control" id="trainDestination" placeholder="Train Destination"> <br>
-                            <!--1st Train Input-->
-                            <label for="trainFirst"> First Train Time</label>
-                            <input type="input" class="form-control" id="trainFirstTime" placeholder="First Train Time"> <br>
-                            <!--Train Frequency Input-->
-                            <label for="trainFreq"> Train Frequency</label>
-                            <input type="input" class="form-control" id="trainFreq" placeholder="Train Frequency"><br>
+                            <div class="form-group">
+                                <!--Train Name Input-->
+                                <label for="trainAdd"> Train Name</label>
+                                <input type="input" class="form-control" id="trainName" placeholder="Train Name">
+                                <br>
+                                <!--Train Destination Input-->
+                                <label for="trainDestination"> Destination</label>
+                                <input type="input" class="form-control" id="trainDestination" placeholder="Train Destination">
+                                <br>
+                                <!--1st Train Input-->
+                                <label for="trainFirst"> First Train Time</label>
+                                <!--<input type="input" class="form-control" id="trainFirstTime" placeholder="First Train Time">-->
+                                <select class="form-control" id="trainFirstTime">
+                                    <option value="05:00"> 05:00 am </option>
+                                    <option value="05:15"> 05:15 am </option>
+                                    <option value="05:30"> 05:30 am </option>
+                                    <option value="05:45"> 05:45 am </option>
+                                    <option value="06:00"> 06:00 am </option>
+                                    <option value="06:15" selected> 06:15 am </option>
+                                    <option value="06:30"> 06:30 am </option>
+                                    <option value="06:45"> 06:45 am </option>
+                                    <option value="07:00"> 07:00 am</option>
+                                    <option value="07:15"> 07:15 am </option>
+                                    <option value="07:30"> 07:30 am </option>
+                                    <option value="08:00"> 08:00 am</option>
+                                    <option value="08:15"> 08:15 am </option>
+                                    <option value="08:30"> 08:30 am </option>
+                                    <option value="06:45"> 08:45 am </option>
+                                    <option value="09:00"> 09:00 am </option>
+                                    <option value="09:15"> 09:15 am</option>
+                                    <option value="09:30"> 09:30 am </option>
+                                    <option value="09:45"> 09:45 am </option>
+                                    <option value="10:00"> 10:00 am </option>
+                                    <option value="10:15"> 10:15 am </option>
+                                    <option value="10:30"> 10:30 am</option>
+                                    <option value="10:45"> 10:45 am </option>
+                                    <option value="11:00">11:00 am </option>
+                                    <option value="11:15">11:15 am </option>
+                                    <option value="11:30">11:30 am </option>
+                                    <option value="11:45"> 11:45 am </option>
+                                    <option value="12:00"> 12:00 pm Noon </option>
+                                    <option value="12:15"> 12:15 pm </option>
+                                    <option value="12:30"> 12:30 pm </option>
+                                    <option value="12:45"> 12:45 pm </option>
+                                    <option value="13:00"> 01:00 pm </option>
+                                    <option value="13:15"> 01:15 pm</option>
+                                    <option value="13:30"> 01:30 pm </option>
+                                    <option value="13:45"> 01:45 pm </option>
+                                    <option value="14:00"> 02:00 pm </option>
+                                    <option value="14:15"> 02:15 pm </option>
+                                    <option value="14:30"> 02:30 pm</option>
+                                    <option value="14:45"> 02:45 pm </option>
+                                    <option value="15:00"> 03:00 pm</option>
+                                    <option value="15:15"> 03:15 pm </option>
+                                    <option value="15:30"> 03:30 pm </option>
+                                    <option value="15:45"> 03:45 pm </option>
+                                    <option value="16:00"> 04:00 pm </option>
+                                    <option value="16:15"> 04:15 pm </option>
+                                    <option value="16:30"> 04:30 pm </option>
+                                    <option value="16:45"> 04:45 pm </option>
+                                </select>
+                                <br>
+                                <!--Train Frequency Input-->
+                                <label for="trainFreq"> Train Frequency</label>
+                                                        <select class="form-control" id="trainFreq">
+                                                            <option value="1"> 1 minute </option>
+                                                            <option value="2"> 2 minutes </option>
+                                                            <option value="3"> 3 minutes </option>
+                                                            <option value="4"> 4 minutes</option>
+                                                            <option value="5"> 5 minutes </option>
+                                                            <option value="6"> 6 minutes</option>
+                                                            <option value="7"> 7 minutes </option>
+                                                            <option value="8"> 8 minutes </option>
+                                                            <option value="9"> 9 minutes</option>
+                                                            <option value="10" selected> 10 minutes </option>
+                                                            <option value="11"> 11 minutes </option>
+                                                            <option value="12"> 12 minutes</option>
+                                                            <option value="13"> 13 minutes </option>
+                                                            <option value="14"> 14 minutes </option>
+                                                            <option value="15"> 15 minutes </option>
+                                                            <option value="16"> 16 minutes </option>
+                                                            <option value="17"> 17 minutes </option>
+                                                            <option value="18"> 18 minutes  </option>
+                                                            <option value="19"> 19 minutes </option>
+                                                            <option value="20"> 20 minutes </option>
+                                                            <option value="21"> 21 minutes </option>
+                                                            <option value="22"> 22 minutes</option>
+                                                            <option value="23"> 23 minutes </option>
+                                                            <option value="24"> 24 minutes </option>
+                                                            <option value="25"> 25 minutes</option>
+                                                            <option value="26"> 26 minutes</option>
+                                                            <option value="27"> 27 minutes </option>
+                                                            <option value="28"> 28 minutes </option>
+                                                            <option value="29"> 29 minutes</option>
+                                                            <option value="30"> 30 minutes</option>
+                                                            <option value="31"> 31 minutes </option>
+                                                            <option value="32"> 32 minutes</option>
+                                                            <option value="33"> 33 minutes</option>
+                                                            <option value="34"> 34 minutes </option>
+                                                            <option value="35"> 35 minutes </option>
+                                                            <option value="36"> 36 minutes </option>
+                                                            <option value="37"> 37 minutes </option>
+                                                            <option value="38"> 38 minutes</option>
+                                                            <option value="39"> 39 minutes </option>
+                                                            <option value="40"> 40 minutes</option>
+                                                            <option value="41"> 41 minutes </option>
+                                                            <option value="42"> 42 minutes </option>
+                                                            <option value="43"> 43 minutes </option>
+                                                            <option value="44"> 44 minutes </option>
+                                                            <option value="45"> 45 minutes </option>
+                                                            <option value="46"> 46 minutes </option>
+                                                            <option value="47"> 47 minutes </option>
+                                                                <option value="48"> 48 minutes </option>
+                                                                <option value="49"> 49 minutes </option>
+                                                                <option value="50"> 50 minutes </option>
+                                                                <option value="51"> 51 minutes </option>
+                                                                <option value="52"> 52 minutes</option>
+                                                                <option value="53"> 53 minutes </option>
+                                                                <option value="54"> 54 minutes </option>
+                                                                <option value="55"> 55 minutes </option>
+                                                                <option value="56"> 56 minutes </option>
+                                                                <option value="57"> 57 minutes</option>
+                                                                <option value="58"> 58 minutes </option>
+                                                                <option value="59"> 59 minutes</option>
+                                                                <option value="60"> 1 hour</option>
+                                                                <option value="75"> 1 hour and 15 minutes </option>
+                                                                <option value="90">  1 hour and 30 minutes</option>
+                                                                <option value="105"> 1 hour and 45 minutes </option>
+                                                                <option value="120"> 2 hours</option>
+                                                                <option value="135"> 2 hours and 15 mintues </option>
+                                                                <option value="150"> 2 hours and 30 mintues </option>
+                                                        </select>
+                                <!--<input type="input" class="form-control" id="trainFreq" placeholder="Train Frequency">-->
+                                <br>
 
-                            <button type="submit" class="btn btn-primary" id="trainSubmit">Submit </button><br>
-                        </div>
-                        </div>
-                     </div>
-                </div>
-             </section>
-                    <!--Col1-->
-                    <aside class="col-sm-5 border" id="sidebar">
-                        <div class="panel panel-info">
-                            <div class="panel-heading border">
-                               <h3> Next Train Arrival</h3>
-                             </div>
-                            <div class="panel-body border">
-                            Train Arrival will go here
+                                <button type="submit" class="btn btn-primary" id="trainSubmit">Submit </button>
+                                <br>
                             </div>
-                        <div>
-                          
                         </div>
-                    </aside>
-                    <!--Col2-->
-                </div><!--Row1-->
-        <div class="row">
-   
-            <div class="col-sm-12">
-                <div class= "panel panel-primary">
-                    <div class="panel-heading" id="TrainInforHeading">
-                        <h3> Train Time Results </h3>
+                    </div>
                 </div>
-                <div class="panel-body border" id="Train-information-saved">
-                        <Table class="table">
-                            <tbody class="table table-striped">
-                            <tr>
-                                <th>Train Name </th>
-                                <th>Destination </th>
-                                <th>First Train Time</th>
-                                <th>Frequency -- in minutes</th>
-                            </tr>
-
-                            <tr>
-                                <td>NYC Train</td>
-                                <td>New York</td>
-                                <td>10:50 AM</td>
-                                <td>30 Mins</td>
-                            </tr>
-                            </tbody>
+            </section>
+            <!--Col1-->
+            <aside class="col-sm-5 border" id="sidebar">
+                <div class="panel panel-info">
+                    <div class="panel-heading border">
+                        <h3> Next Train Arrival</h3>
+                    </div>
+                    <div class="panel-body border" id= "currentTrainArrival">
+                        <Table>
+                            
                         </Table>
                     </div>
-                    <!--col-->
-                </div>
-                <!--panel body-->
+                    <div>
+
+                    </div>
+            </aside>
+            <!--Col2-->
             </div>
-            <!--panel-->
+            <!--Row1-->
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" id="TrainInforHeading">
+                            <h3> Train Time Results </h3>
+                        </div>
+                        <div class="panel-body border">
+                            <Table class="table" id="train-table">
+                                <thead>
+                                    <tr>
+                                        <th>Train Name </th>
+                                        <th>Destination </th>
+                                        <th>First Train Time</th>
+                                        <th>Frequency -- in minutes</th>
+                                    </tr>
+                                </thead>
+
+                            </Table>
+                        </div>
+                        <!--col-->
+                    </div>
+                    <!--panel body-->
+                </div>
+                <!--panel-->
+            </div>
+            <!--row1-->
         </div>
-        <!--row1-->
-    </div>
-    <!--Container-->
+        <!--Container-->
 
 
 </body>
