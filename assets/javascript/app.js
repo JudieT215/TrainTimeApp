@@ -79,12 +79,14 @@ $(document).ready(function() {
         trainFreqVal +
         "</td></tr>"
     );
-  
-  
+ 
+      $("#currentTrainName").text(trainNameVal);
 
-      $("#currentTrainArrival").text(moment(nextTrain).format("hh:mm"));
+      $("#currentTrainArrival").text(moment(nextTrain).format("hh:mm A"));
+
+      $("#minsTillTrainArrival").text(tMinutesTillTrain);
     });
-});
 
+ });
 
  //over all program closer
